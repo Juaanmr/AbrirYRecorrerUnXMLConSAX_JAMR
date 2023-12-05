@@ -20,12 +20,23 @@ public class TitulosSAXhandler extends DefaultHandler {
         etiqueta = "";//también se puede hacer con int etiqueta
     }
 
+    /**
+     * sobrescribimos el metodo para mostrar por pantalla el System.out.println
+     */
     @Override
     public void startDocument() {
         System.out.println("LISTADO DE TITULOS");
         System.out.println("==================");
     }
 
+    /**
+     * sobrescribimos el metodo que se ejectado para que nos impirma por pantalla lo que deseamos
+     * @param uri
+     * @param localName
+     * @param qName
+     * @param atts
+     * @throws SAXException error al leer el xml
+     */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
         if (qName.equals("Libro")) {
@@ -37,6 +48,13 @@ public class TitulosSAXhandler extends DefaultHandler {
         }
     }
 
+    /**
+     * metodo que elimina tabulaciones y saltos de linea 
+     * @param ch
+     * @param start
+     * @param length
+     * @throws SAXException 
+     */
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (etiqueta.equals("Titulo") || etiqueta.equals("Autor")) {

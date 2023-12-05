@@ -16,6 +16,11 @@ public class AccesoXMLSAX {
 
     SAXParser parser;
 
+    /**
+     * metodo que recorre el xml con sax y utiliza el handler que muestra todos los valores de los libros
+     * @param f archivo xml que queremso parsear
+     * @return si devuelve un 0 esta todo correcto y si devuelve un 1 hay algun error al parsear
+     */
     public int parsearXMLconLibrosSAXhandler(File f) {
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
@@ -29,6 +34,11 @@ public class AccesoXMLSAX {
         }
     }
     
+    /**
+     * metodo que recorre el xml con sax y utiliza el handler que muestra SOLO el valor de los titulos  de los librso
+     * @param f archivoxml que queremso parsear
+     * @return si devuelve un 0 esta todo correcto y si devuelve un 1 hay algun error al parsear
+     */
     public int parsearXMLconTituloSAXhandler(File f){
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();

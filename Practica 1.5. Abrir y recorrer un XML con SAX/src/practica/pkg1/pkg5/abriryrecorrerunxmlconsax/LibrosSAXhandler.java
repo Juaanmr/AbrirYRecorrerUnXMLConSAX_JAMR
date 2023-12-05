@@ -19,12 +19,23 @@ public class LibrosSAXhandler extends DefaultHandler {
     public LibrosSAXhandler() {
     }
     
+    /**
+     * sobrescribimos el metodo para mostrar por pantalla el System.out.println
+     */
     @Override
     public void startDocument() {
         System.out.println("LISTADO DE LIBROS");
         System.out.println("==================");
     }
 
+    /**
+     * sobrescribimos el metodo que se ejectado para que nos impirma por pantalla lo que deseamos
+     * @param uri
+     * @param localName
+     * @param qName
+     * @param atts
+     * @throws SAXException error a la hora de leer el xml
+     */
     @Override
     public void startElement(String uri, String localName, String qName, Attributes atts) throws SAXException {
         if (qName.equals("Libro")) {
@@ -38,6 +49,14 @@ public class LibrosSAXhandler extends DefaultHandler {
         }
     }
 
+    /**
+     * sobrescribimos el metodo que se ejecuta cuando se termina de recorrer un Element. cuando se salga del elemento libro saldra una 
+     * linea para separar un libro de otros
+     * @param uri
+     * @param localName
+     * @param qName
+     * @throws SAXException error a la hora de leer el xml
+     */
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equals("Libro")) {
@@ -45,6 +64,13 @@ public class LibrosSAXhandler extends DefaultHandler {
         }
     }
 
+    /**
+     * metodo que elimina tabulaciones y saltos de linea 
+     * @param ch
+     * @param start
+     * @param length
+     * @throws SAXException error a la hora de leer el xml
+     */
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         String car = new String(ch, start, length);
